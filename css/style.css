@@ -1,0 +1,517 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: local('MontserratRegular'),
+       url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+		   url('../fonts/Montserrat-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: local('MontserratBold'),
+       url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+       url('../fonts/Montserrat-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: local('MontserratSemiBold'),
+       url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+       url('../fonts/Montserrat-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: local('MontserratMedium'),
+       url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+       url('../fonts/Montserrat-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: local('MontserratExtraBold'),
+       url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+       url('../fonts/Montserrat-ExtraBold.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --gap: 32px;
+  --block-border-radius: 20px;
+  --color-text: #fff;
+  --color-text-dark: #000;
+  --сolor-backgroud: #00072c;
+  /* --light-gray: #cacaca; */
+  --color-desing: #fec83f;
+  --color-hover: #ffb84d;
+  /* --color-active: #e1670e; */
+  /* --color-active: #A47312; */
+
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  min-width: 320px;
+  color: var(--color-text);
+  background-color: var(--сolor-backgroud);
+}
+
+[class*="__container"] {
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1280px;
+}
+
+/* glob */
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.section__title {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 35px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 43px;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 1;
+  z-index: 3;
+}
+
+.section__text {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 24px;
+}
+
+.item-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.section__bottom{
+  margin-bottom: 35px;
+}
+
+.btn {
+  border-radius: var(--block-border-radius);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  color: var(--color-text-dark);
+  background-color: var(--color-desing);
+  transition: background-color .3s ease-in-out;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible,
+.btn:hover {
+  background-color: var(--color-hover);
+}
+
+.btn:active {
+  background-color: var(--color-active);
+}
+
+/* === header === */
+.header {
+  margin-bottom: 41px;
+  height: 108px;
+}
+
+.header__container {
+  align-items: center;
+}
+
+.header__menu {
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 50%;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  border-bottom: 4px solid var(--color-desing);
+}
+
+.menu__list {
+  align-items: center;
+}
+
+.menu__item:not(:last-child) {
+  margin-right: 98px;
+}
+
+.menu__link,
+.right__link {
+  position: relative;
+  transition: color .3s ease-in-out;
+}
+
+.right__link {
+  align-items: center;
+  transition: color .3s ease-in-out;
+}
+
+.right__link svg {
+  margin-right: 9px;
+  width: 40px;
+  height: 40px;
+}
+
+.menu__link:focus-visible,
+.right__link:focus-visible {
+  outline: 2px solid var(--color-desing);
+  outline-offset: 5px;
+}
+
+.menu__link:hover,
+.right__link:hover {
+  color: var(--color-desing);
+}
+
+.menu__link:active,
+.right__link:active {
+  color: var(--color-desing);
+  opacity: 0.7;
+}
+
+/* === hero ===*/
+.hero {
+  position: relative;
+  width: 100%;
+  /* min-height: 692px; */
+  padding-top: 122px;
+  padding-bottom: 122px;
+  background-image: url(../img/hero/hero-2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  z-index: 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  /* height: 692px; */
+  /* outline: 1px solid red; */
+  background-color: rgba(0, 7, 44, 0.3);
+  z-index: -1;
+}
+
+.hero__content {
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 59%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero__title {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 70px;
+}
+
+.hero__text {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.hero__btn {
+  padding: 24px 71px;
+  pointer-events: auto;
+}
+
+/* === about ===*/
+.about__title::before {
+  content: 'об адвокате';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #113F98;
+  opacity: 0.2;
+  transform: translate(-50%,-50%);
+}
+
+.about-info {
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;;
+}
+
+.about-info__desc {
+  margin-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.about-info__paragraph {
+  line-height: 27px;
+}
+
+.paragraph__bottom {
+  margin-bottom: 40px;
+}
+
+.about-info__item {
+  padding-left: 30px;
+  background-image: url(../img/check.svg);
+  background-repeat: no-repeat;
+  background-position: 5px 7px;
+}
+
+.about__img {
+  filter: drop-shadow(10px 10px 10px rgba(5, 100, 153, 0.25));
+}
+
+.about-plus {
+  margin-bottom: 35px;
+}
+
+.about-plus__item {
+  margin-bottom: 35px;
+  padding-left: 100px;
+  min-height: 70px;
+  background-image: url(../img/about/about-icon-2.svg);
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.about-plus__text {
+  padding-top: 10px;
+}
+
+.about-plus__text_desing {
+  color: var(--color-desing);
+}
+
+.adout-adv_desc {
+  margin-left: 15px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.article__title {
+  margin-bottom: 30px;
+  margin-left: 28px;
+  font-weight: 600;
+}
+
+.adout-adv__item {
+  padding-left: 32px;
+  background-image: url(../img/check.svg);
+  background-repeat: no-repeat;
+  background-position: top 5px left 6px;
+}
+
+.adout-adv__item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.about__text {
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-desing);
+}
+
+/* === servis === */
+.servis__title::before {
+  content: 'Услуги';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #113F98;
+  opacity: 0.2;
+  transform: translate(-50%,-50%);
+}
+
+.servis__list {
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.servis__item {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 145px 16px 35px;
+  border: 5px solid var(--color-desing);
+  border-radius: var(--block-border-radius);
+  flex: 1 1 48.7%;
+  background-repeat: no-repeat;
+  background-position: top 35px center;
+}
+
+.servis__item:nth-child(1){
+  background-image: url(../img/servis/servis-1.svg);
+}
+
+.servis__item:nth-child(2){
+  background-image: url(../img/servis/servis-2.svg);
+}
+
+.servis__item:nth-child(3){
+  background-image: url(../img/servis/servis-3.svg);
+}
+
+.servis__item:nth-child(4){
+  background-image: url(../img/servis/servis-4.svg);
+}
+
+.item__title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+}
+
+.item__text {
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.item__btn {
+  margin-top: auto;
+  padding: 15px 57px;
+}
+
+/* === practice === */
+.practice__title::before {
+  content: 'мои дела';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #113F98;
+  opacity: 0.2;
+  transform: translate(-50%,-50%);
+}
+
+/* === news === */
+.news__title::before {
+  content: 'новости';
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #113F98;
+  opacity: 0.2;
+  transform: translate(-50%,-50%);
+}
+
+/* === contacts === */
+.contacts__title::before {
+  content: 'контакты';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #113F98;
+  opacity: 0.2;
+  transform: translate(-50%,-50%);
+}
+
+
