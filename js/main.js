@@ -87,4 +87,26 @@ document.addEventListener('keydown', function(e) {
 });
 
 
+// tabs
+let tabsBtn = document.querySelectorAll('.servis_btn');
+let tabsItem = document.querySelectorAll('.content__item');
+
+tabsBtn.forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    let path =e.currentTarget.getAttribute('data-path');
+    
+    tabsBtn.forEach(function(btn) {
+      btn.classList.remove('servis_btn--active');
+      e.currentTarget.classList.add('servis_btn--active');
+    });
+
+    tabsItem.forEach(function(item) {
+      item.classList.remove('content__item--active');
+      document.querySelector(`[data-target="${path}"]`).classList.add('content__item--active');
+    });
+  });
+});
+
+
+
 
