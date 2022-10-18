@@ -45,6 +45,7 @@ ymaps.ready(init);
 const btns = document.querySelectorAll('.btn-open');// массив кнопок
 const modalOverlay = document.querySelector('.modal__overlay');
 const modals = document.querySelectorAll('.modal');// массив окон
+const btnClose = document.querySelector('.btn-close');
 let body = document.body;
 
 btns.forEach(function(btn) {
@@ -62,10 +63,19 @@ btns.forEach(function(btn) {
     });
 });
 
-// закрытие по click закрытие окна
-modalOverlay.addEventListener('click', function(e) {
-    console.log(e.target);
+// закрытие закрытие окна по close
+btnClose.addEventListener('click', function(e) {
+  if(e.target === btnClose) {
+      modalOverlay.classList.remove('modal__overlay--visible');
+      body.classList.remove('stop-scroll')
+      modals.forEach(function(el) {
+         el.classList.remove('modal--visible');
+      });
+  }
+});
 
+// закрытие закрытие окна по click
+modalOverlay.addEventListener('click', function(e) {
     if(e.target == modalOverlay) {
         modalOverlay.classList.remove('modal__overlay--visible');
         body.classList.remove('stop-scroll')
@@ -108,16 +118,23 @@ tabsBtn.forEach(function(btn) {
 });
 
 // иницилизация slider-swiper
-const swiper = new Swiper('.slider__swiper', {
+const swiper = new Swiper('.slider__swiper2', {
+    // slidesPerView: 2,
+    spaceBetween: 24,
+    centeredSlides: true,
     direction: 'horizontal',
     loop: true,
   
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      type: 'bullets',
+      type: 'fraction',
     },
-  
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   
     keyboard: {
       enabled: true,
