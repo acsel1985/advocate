@@ -89,7 +89,7 @@ document.addEventListener('keydown', function(e) {
 
 // tabs
 let tabsBtn = document.querySelectorAll('.servis_btn');
-let tabsItem = document.querySelectorAll('.content__item');
+let tabsItem = document.querySelectorAll('.servis__content');
 
 tabsBtn.forEach(function(btn) {
   btn.addEventListener('click', function(e) {
@@ -101,12 +101,38 @@ tabsBtn.forEach(function(btn) {
     });
 
     tabsItem.forEach(function(item) {
-      item.classList.remove('content__item--active');
-      document.querySelector(`[data-target="${path}"]`).classList.add('content__item--active');
+      item.classList.remove('servis__content--active');
+      document.querySelector(`[data-target="${path}"]`).classList.add('servis__content--active');
     });
   });
 });
 
+// иницилизация slider-swiper
+const swiper = new Swiper('.slider__swiper', {
+    direction: 'horizontal',
+    loop: true,
+  
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      type: 'bullets',
+    },
+  
+  
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
+    },
+  
+    mousewheel: {
+      invert: true,
+    },
+  
+    a11y: {
+      paginationBulletMessage: 'Перейти к слайду {{index}}'
+    },
+  
+  });
 
 
 
