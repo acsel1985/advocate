@@ -45,6 +45,7 @@ ymaps.ready(init);
 const btns = document.querySelectorAll('.btn-open');// массив кнопок
 const modalOverlay = document.querySelector('.modal__overlay');
 const modals = document.querySelectorAll('.modal');// массив окон
+const btnClose = document.querySelector('.btn-close');
 let body = document.body;
 
 btns.forEach(function(btn) {
@@ -62,10 +63,19 @@ btns.forEach(function(btn) {
     });
 });
 
-// закрытие по click закрытие окна
-modalOverlay.addEventListener('click', function(e) {
-    console.log(e.target);
+// закрытие закрытие окна по close
+btnClose.addEventListener('click', function(e) {
+  if(e.target === btnClose) {
+      modalOverlay.classList.remove('modal__overlay--visible');
+      body.classList.remove('stop-scroll')
+      modals.forEach(function(el) {
+         el.classList.remove('modal--visible');
+      });
+  }
+});
 
+// закрытие закрытие окна по click
+modalOverlay.addEventListener('click', function(e) {
     if(e.target == modalOverlay) {
         modalOverlay.classList.remove('modal__overlay--visible');
         body.classList.remove('stop-scroll')
@@ -89,7 +99,7 @@ document.addEventListener('keydown', function(e) {
 
 // tabs
 let tabsBtn = document.querySelectorAll('.servis_btn');
-let tabsItem = document.querySelectorAll('.content__item');
+let tabsItem = document.querySelectorAll('.servis__content');
 
 tabsBtn.forEach(function(btn) {
   btn.addEventListener('click', function(e) {
@@ -101,12 +111,45 @@ tabsBtn.forEach(function(btn) {
     });
 
     tabsItem.forEach(function(item) {
-      item.classList.remove('content__item--active');
-      document.querySelector(`[data-target="${path}"]`).classList.add('content__item--active');
+      item.classList.remove('servis__content--active');
+      document.querySelector(`[data-target="${path}"]`).classList.add('servis__content--active');
     });
   });
 });
 
+// иницилизация slider-swiper
+const swiper = new Swiper('.slider__swiper2', {
+    // slidesPerView: 2,
+    spaceBetween: 24,
+    centeredSlides: true,
+    direction: 'horizontal',
+    loop: true,
+  
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      type: 'fraction',
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
+    },
+  
+    mousewheel: {
+      invert: true,
+    },
+  
+    a11y: {
+      paginationBulletMessage: 'Перейти к слайду {{index}}'
+    },
+  
+  });
 
 
 
