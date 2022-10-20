@@ -423,14 +423,14 @@ body {
   position: absolute;
   z-index: -2;
   /* top: 0%; */
-  top: 26%;
+  top: 25%;
   left: 0%;
   font-size: 7rem;
   font-weight: bold;
   text-align: center;
   color: #113F98;
   opacity: 0.2;
-  /* transform: translate(5%,130%); */
+  transform: translate(5%, 50%);
 
 }
 
