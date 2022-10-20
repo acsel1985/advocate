@@ -48,6 +48,7 @@ const modals = document.querySelectorAll('.modal');// массив окон
 const btnClose = document.querySelector('.btn-close');
 let body = document.body;
 
+
 btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
         let path =e.currentTarget.getAttribute('data-path');// в переменную записываю значение атрибута кнопки по которой кликнули
@@ -58,20 +59,18 @@ btns.forEach(function(btn) {
 
         document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
         modalOverlay.classList.add('modal__overlay--visible');
-        body.classList.add('stop-scroll')
+        body.classList.add('stop-scroll');
 
     });
 });
 
 // закрытие закрытие окна по close
 btnClose.addEventListener('click', function(e) {
-  if(e.target === btnClose) {
-      modalOverlay.classList.remove('modal__overlay--visible');
-      body.classList.remove('stop-scroll')
-      modals.forEach(function(el) {
-         el.classList.remove('modal--visible');
-      });
-  }
+  modalOverlay.classList.remove('modal__overlay--visible');
+  body.classList.remove('stop-scroll');
+  modals.forEach(function(el) {
+    el.classList.remove('modal--visible');
+  });
 });
 
 // закрытие закрытие окна по click
@@ -118,9 +117,9 @@ tabsBtn.forEach(function(btn) {
 });
 
 // иницилизация slider-swiper
-const swiper = new Swiper('.slider__swiper2', {
+const swiper = new Swiper('.swiper-slide', {
     // slidesPerView: 2,
-    spaceBetween: 24,
+    // spaceBetween: 24,
     centeredSlides: true,
     direction: 'horizontal',
     loop: true,
