@@ -87,6 +87,88 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// inputmask
+console.log('Init!');
+ const form = document.querySelector('.form');
+ const telSelector = form.querySelector('input[type="tel"]');
+ const inputMask = new Inputmask('+7 (999) 999-99-99');
+ inputMask.mask(telSelector);
+
+// validate form
+const validation = new JustValidate('.form');
+
+validation
+  .addField('#name', [
+    {
+      rule: 'minLength',
+      value: 3,
+      // errorMessage: 'Введите 3 или более символов',
+    },
+    {
+      rule: 'maxLength',
+      value: 30,
+      // errorMessage: 'Запрещено вводить более 30 символов',
+    },
+    {
+      rule: 'required',
+      value: true,
+      errorMessage: 'Введите имя',
+    },
+  ])
+  .addField('#tel', [
+    {
+      rule: 'required',
+      errorMessage: 'Телефон обязателен',
+    },
+    {
+      rule: 'function',
+      validator: function() {
+        const phone = telSelector.inputmask.unmaskedvalue();
+        return phone.length === 10;
+      },
+      errorMessage: 'Введите корректный телефон',
+    },
+  ])
+  .addField('#email', [
+    {
+      rule: 'required',
+      errorMessage: 'Email обязателен',
+    },
+    {
+      rule: 'email',
+      errorMessage: 'Введите корректный Email',
+    },
+  ]).onSuccess((event) => {
+    console.log('Validation passes and form submitted', event);
+    let formData = new FormData(event.target);
+
+    console.log(...formData);
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log('Отправлено');
+        }
+      }
+    }
+
+    xhr.open('POST', 'mail.php', true);
+    xhr.send(formData);
+
+    event.target.reset();
+  }); 
+
+  // .addField('#question', [
+  //   {
+  //     validator: (value) => {
+  //       return value[0] === '!';
+  //     },
+  //   },
+  // ])
+
+
 
 // tabs
 let tabsBtn = document.querySelectorAll('.servis_btn');
@@ -171,7 +253,7 @@ function init() {
     //     to: `${city}, ${addressOffice}`,
     // });
 
-    // map.controls.remove('geolocationControl'); // удаляем геолокацию
+    map.controls.remove('geolocationControl'); // удаляем геолокацию
     map.controls.remove('searchControl'); // удаляем поиск
     map.controls.remove('trafficControl'); // удаляем контроль трафика
     // map.controls.remove('typeSelector'); // удаляем тип
