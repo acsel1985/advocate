@@ -1,4 +1,21 @@
 @media (max-width: 1024px) {
+    /* disable styles focus-visible */
+    .btn:focus-visible {
+        color: var(--color-text-dark);
+        background-color: var(--color-desing);
+        outline: none;
+    }
+    .menu__link:focus-visible,
+    .tel__link:focus-visible,
+    .servis_btn:focus-visible:not(.servis_btn--active),
+    .contacts__link:focus:after,
+    .footer__icon:focus-visible svg,
+    .footer__icon:focus-visible {
+        outline: none;
+    }   
+
+     
+
     /* === hero ===*/
     .hero__wrapper::after {
         /* background-image: url(../img/hero/hero-3-3.jpg); */
@@ -67,7 +84,8 @@
         overflow-y: auto;
         display: block;
         padding: 6rem 1.5rem;
-        width: 50vw;
+        width: 40vw;
+        min-width: 320px;
         height: 80vh;
         background-color: var(--сolor-backgroud);
         box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
@@ -169,12 +187,13 @@
 
 @media (max-width: 578px) {
     :root {
-        --gap: 10px;
+        --gap: 20px;
       }
-        /* glob */
-        /* .section__bottom{
-            margin-bottom: 1.5rem;
-            }
+    /* glob */
+    .section__bottom{
+        margin-bottom: 1rem;
+    }
+        /* 
         .section__title {
             margin-bottom: 1rem;
             padding: 0;
@@ -187,6 +206,9 @@
     .btn__contact {
         font-size: 1rem;
         padding: 14px 0.5rem;
+    }
+    /* === header === */
+    .menu__list {
     }
     /* === hero ===*/
     .hero__wrapper::after {
@@ -201,18 +223,14 @@
         font-size: 1.5rem;
     }
     .hero__text {
-        font-size: 0.875rem;
         line-height: 1.25;
     }
     .hero__list {
         text-align: start;
     }
     .hero__item {
-        padding: 0.25rem 0 0.25rem 28px;
-        background-size: 20px;
-    }
-    .hero__item_text {
-        font-size: 0.875rem;
+        padding-left: 38px;
+        background-size: 30px;
     }
         
     /* === contacts === */
