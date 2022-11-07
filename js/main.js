@@ -2,7 +2,8 @@
 let burger = document.querySelector('.btn-burger');
 let menu = document.querySelector('.menu__list');
 let menuLink = document.querySelectorAll('.menu__link');
-let body = document.body;
+// let pagePosition = window.scrollY;
+const body = document.body;
 
 burger.addEventListener('click', function() {
   burger.classList.toggle('btn-burger-active');
@@ -25,7 +26,7 @@ menuLink.forEach(function(e) {
 document.addEventListener('click',
 function(el) {
   let target = el.target;
-  if(!target.closest('.header__burger')) {
+  if(!target.closest('.header__burger') && burger.classList.contains('btn-burger-active')) {
     burger.classList.remove('btn-burger-active');
     burger.setAttribute("aria-label", 'Открыть меню');
     menu.classList.remove('menu__list-active');
@@ -36,10 +37,11 @@ function(el) {
 
 
 // иницилизация modal-windows
-const btns = document.querySelectorAll('.btn-open');// массив кнопок
+const btns = document.querySelectorAll('.btn__open');// массив кнопок
 const modalOverlay = document.querySelector('.modal__overlay');
 const modals = document.querySelectorAll('.modal');// массив окон
 const btnClose = document.querySelector('.btn-close');
+// const body = document.body;
 
 btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
@@ -48,11 +50,10 @@ btns.forEach(function(btn) {
         modals.forEach(function(el) {
             el.classList.remove('modal--visible');
         });
-
+        
         document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
         modalOverlay.classList.add('modal__overlay--visible');
         body.classList.add('stop-scroll');
-
     });
 });
 
