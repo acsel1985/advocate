@@ -10,12 +10,11 @@
   padding: 1.5rem;
   border-radius: 1rem;
   width: 350px;
-  /* width: calc((100% - var(--gap)*2)/3); */
   height: 400px;
   background-color: var(--bluelight-color);
   color: var(--black-color);
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .swiper .swiper-slide-active {
   transform: scaleX(1.12) scaleY(1.12);
