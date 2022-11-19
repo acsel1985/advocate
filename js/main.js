@@ -7,7 +7,7 @@ const body = document.body;
 let disableScroll = function() {
   let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
   let pagePosition = window.scrollY;
-  body.classList.add('stop-scroll');
+  body.classList.add('disable-scroll');
   body.dataset.position = pagePosition;
   body.style.top = - pagePosition + 'px';
   body.style.paddingRight = paddingOffset;
@@ -15,7 +15,7 @@ let disableScroll = function() {
 
 let enableScroll = function() {
   let pagePosition = parseInt(body.dataset.position, 10);
-  body.classList.remove('stop-scroll');
+  body.classList.remove('disable-scroll');
   body.style.top = 'auto';
   body.style.paddingRight = '0px';
   window.scroll({top: pagePosition});
