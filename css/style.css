@@ -87,7 +87,7 @@ img {
 }
 body {
   font:  400 16px/20px 'Montserrat', sans-serif;
-  min-width: 320px;
+  min-width: 360px;
   color: var(--white-color);
   background-color: var(--color-bg);
 }
@@ -200,17 +200,17 @@ display: none;
 }
 
 /* === header === */
- .header {
+ /* .header {
   border-bottom: 3px solid var(--accent-color);
   border-bottom-left-radius: var(--main-radius);
   border-bottom-right-radius: var(--main-radius);
-}
+} */
 .header__wrapper {
     align-items: center;
     justify-content: center;
     padding-top: 1.5rem; 
     padding-bottom: 1.5rem; 
-    /* border-bottom: 4px solid var(--accent-color); */
+    border-bottom: 3px solid var(--accent-color);
     width: 100%;
 }
 .header__menu {
@@ -434,7 +434,7 @@ display: none;
   position: relative;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem 0.5rem 1rem 6rem;
+  padding: 1rem 0.5rem 1rem 5rem;
   width: calc((100% - (var(--gap))*1)/2);
   /* outline: 2px solid green; */
 }
@@ -445,7 +445,7 @@ display: none;
   top: 50%;
   left: 0%;
   width: 100%;
-  font-size: 7.5rem;
+  font-size: 6rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: var(--accent-color);
