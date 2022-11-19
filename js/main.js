@@ -2,17 +2,35 @@
 let burger = document.querySelector('.btn-burger');
 let menu = document.querySelector('.menu__list');
 let menuLink = document.querySelectorAll('.menu__link');
-// let pagePosition = window.scrollY;
 const body = document.body;
+
+let disableScroll = function() {
+  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
+  let pagePosition = window.scrollY;
+  body.classList.add('stop-scroll');
+  body.dataset.position = pagePosition;
+  body.style.top = - pagePosition + 'px';
+  body.style.paddingRight = paddingOffset;
+}
+
+let enableScroll = function() {
+  let pagePosition = parseInt(body.dataset.position, 10);
+  body.classList.remove('stop-scroll');
+  body.style.top = 'auto';
+  body.style.paddingRight = '0px';
+  window.scroll({top: pagePosition});
+  body.removeAttribute('data-position');
+}
 
 burger.addEventListener('click', function() {
   burger.classList.toggle('btn-burger-active');
   menu.classList.toggle('menu__list-active');
-  body.classList.toggle('stop-scroll');
   if (burger.getAttribute('aria-label') === 'Открыть меню') {
     burger.setAttribute("aria-label", 'Закрыть меню');
+    disableScroll();
   } else {
     burger.setAttribute("aria-label", 'Открыть меню');
+    enableScroll();
   }
 });
 menuLink.forEach(function(e) {
@@ -20,7 +38,7 @@ menuLink.forEach(function(e) {
     burger.classList.remove('btn-burger-active');
     burger.setAttribute("aria-label", 'Открыть меню');
     menu.classList.remove('menu__list-active');
-    body.classList.remove('stop-scroll');
+    enableScroll();
   });
 });
 document.addEventListener('click',
@@ -30,7 +48,7 @@ function(el) {
     burger.classList.remove('btn-burger-active');
     burger.setAttribute("aria-label", 'Открыть меню');
     menu.classList.remove('menu__list-active');
-    body.classList.remove('stop-scroll');
+    enableScroll();
   }
 
 });
@@ -41,7 +59,6 @@ const btns = document.querySelectorAll('.btn__open');// массив кнопо�
 const modalOverlay = document.querySelector('.modal__overlay');
 const modals = document.querySelectorAll('.modal');// массив окон
 const btnClose = document.querySelector('.btn-close');
-// const body = document.body;
 
 btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
@@ -53,14 +70,14 @@ btns.forEach(function(btn) {
         
         document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
         modalOverlay.classList.add('modal__overlay--visible');
-        body.classList.add('stop-scroll');
+        disableScroll();
     });
 });
 
 // закрытие закрытие окна по close
 btnClose.addEventListener('click', function(e) {
   modalOverlay.classList.remove('modal__overlay--visible');
-  body.classList.remove('stop-scroll');
+  enableScroll();
   modals.forEach(function(el) {
     el.classList.remove('modal--visible');
   });
@@ -70,7 +87,7 @@ btnClose.addEventListener('click', function(e) {
 modalOverlay.addEventListener('click', function(e) {
     if(e.target == modalOverlay) {
         modalOverlay.classList.remove('modal__overlay--visible');
-        body.classList.remove('stop-scroll')
+        enableScroll();
         modals.forEach(function(el) {
            el.classList.remove('modal--visible');
         });
@@ -81,7 +98,7 @@ modalOverlay.addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         modalOverlay.classList.remove('modal__overlay--visible');
-        body.classList.remove('stop-scroll')
+        enableScroll();
         modals.forEach(function(el) {
            el.classList.remove('modal--visible');
         });
@@ -192,9 +209,9 @@ tabsBtn.forEach(function(btn) {
 });
 
 // иницилизация slider-swiper
-const swiper = new Swiper('.swiper-slide', {
-    // slidesPerView: 2,
-    // spaceBetween: 24,
+const swiper = new Swiper('.swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 40,
     centeredSlides: true,
     direction: 'horizontal',
     loop: true,
@@ -215,9 +232,9 @@ const swiper = new Swiper('.swiper-slide', {
       onlyInViewport: false,
     },
   
-    mousewheel: {
-      invert: true,
-    },
+    // mousewheel: {
+    //   invert: true,
+    // },
   
     a11y: {
       paginationBulletMessage: 'Перейти к слайду {{index}}'

@@ -5,54 +5,52 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="libs/swiper-bundle.min.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/style-new.css">
   <!-- <link rel="stylesheet" href="css/style-media.css"> -->
-  <link rel="stylesheet" href="css/media.css">
+  <!-- <link rel="stylesheet" href="css/media.css"> -->
   <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
 
   <title>Адвокат Василий Михайлов</title>
 </head>
 <body>
-
     <header class="header container section__bottom">
       <div class="header__wrapper flex">
         <button class="btn-reset btn-burger header__burger" aria-label="Открыть меню">
           <span class="btn-burger__lines"></span> 
         </button>
-
         <nav class="header__menu flex">
           <ul class="menu__list list-reset flex">
-            <li class="menu__item item-text">
-              <a class=" menu__link" href="#about">Об&nbsp;адвокате</a>
+            <li class="menu__item">
+              <a class="menu__link menu__text" href="#about">Об&nbsp;адвокате</a>
             </li>
-            <li class="menu__item item-text">
-              <a class=" menu__link" href="#servis">Услуги</a>
+            <li class="menu__item">
+              <a class="menu__link menu__text" href="#servis">Услуги</a>
             </li>
-            <li class="menu__item item-text">
-              <a class=" menu__link" href="#practice">Мои дела</a>
+            <li class="menu__item">
+              <a class="menu__link menu__text" href="#practice">Мои дела</a>
             </li>
-            <li class="menu__item item-text">
-              <a class=" menu__link" href="#news">Новости</a>
+            <li class="menu__item">
+              <a class="menu__link menu__text" href="#news">Новости</a>
             </li>
-            <li class="menu__item item-text">
-              <a class=" menu__link" href="#contacts">Контакты</a>
+            <li class="menu__item">
+              <a class="menu__link menu__text" href="#contacts">Контакты</a>
             </li>
           </ul>  
-
-          <div class="header__contact item-text">
-            <a class="tel__link flex" href="tel:+79603051979">+7 (960) 305-19-79</a>
+          <div class="header__contact">
+            <a class="menu__link menu__link--tel menu__text flex" href="tel:+79603051979">+7 (960) 305-19-79</a>
           </div>
         </nav>
       </div>
     </header>
-
     <main>
         <section class="hero container section__bottom">
           <div class="hero__wrapper flex">
             <div class=" hero__content flex">
               <h1 class="hero__title">Адвокат Василий&nbsp;Михайлов</h1>
               <p class="hero__text">Защита и&nbsp;представление интересов по&nbsp;гражданским, административным и&nbsp;уголовным делам.</p>
-              <ul class="hero__list list-reset">
+              <ul class="hero__list list-reset flex">
                 <li class="hero__item flex">
                   <p class="hero__item_text">Постоянно повышаю квалификацию</p>
                 </li>
@@ -75,80 +73,65 @@
           <span class="title__shadow">об адвокате</span>
           <h2 class="about__title section__title">об адвокате</h2>
           <div class="about__info section__bottom">
-            <picture class="info__img">
-              <!-- <source srcset="./img/about/about-1-3.jpg" media="(max-width: 768px)">   -->
-              <!-- <img src="./img/about/about-1-2.jpg" alt="Василий Михайлов"> -->
+            <picture class="info__img" >
+              <source srcset="./img/about/initial-2.jpg" media="(max-width: 578px)">  
+              <source srcset="./img/about/about-1-3.jpg" media="(max-width: 768px)">  
+              <!-- <img class="info__img"  src="./img/about/about-1-2.jpg" alt="Василий Михайлов"> -->
               <img src="./img/about/initial-1-1.jpg" alt="Василий Михайлов">
+              <!-- <img class="info__img" src="./img/about/initial-2.jpg" alt="Василий Михайлов"> -->
             </picture>
-            <ul class="info__list list-reset">
-              <li class="info__paragraph">
-                <p class="desc__text section__text">Меня зовут Михайлов Василий Николаевич.</p>
-              </li>
-              <li class="info__paragraph">
-                <p class="section__text">Я&nbsp;адвокат Адвокатской палаты Чувашской Республики.</p>
-                <p class="section__text">Мой регистрационный номер в&nbsp;реестре адвокатов 639.</p>
-                <p class="section__text">Свою деятельность осуществляю в&nbsp;коллегии адвокатов &laquo;Бизнес&nbsp;и&nbsp;право&raquo;.</p>
-              </li>
-              <li class="info__paragraph">
-                <p class="section__text">В&nbsp;2004 году закончил Нижегородскую академию МВД России.</p>
-                <p class="section__text">В&nbsp;2008 году закончил Чувашской Государственный Университет им. И.&nbsp;Н.&nbsp;Ульянова.</p>
-                <p class="section__text">В&nbsp;2012 году закончил Академию МВД России.</p>
-              </li>
-              <li class="info__paragraph">
-                <p class="section__text">14&nbsp;лет службы в&nbsp;следственных подразделениях МВД Чувашии и&nbsp;МВД России.</p>
-                <p class="section__text">&nbsp;4&nbsp;года адвокатской практики.</p>
-              </li>
-              <li class="info__paragraph">
-                <p class="section__text">За&nbsp;время профессиональной деятельности адвокатом, я&nbsp;выработал свои профессиональные стандарты:</p>
-                <ul class="paragraph__list list-reset">
-                  <li class="paragraph__item"><p class="paragraph__item_text section__text">глубокие теоретические знания законов&nbsp;РФ;</p></li>
-                  <li class="paragraph__item"><p class="paragraph__item_text section__text">анализ быстро меняющейся правоприменительной практики в&nbsp;России;</p></li>
-                  <li class="paragraph__item"><p class="paragraph__item_text section__text">индивидуальный подход к&nbsp;защите интересов своих клиентов.</p></li>
+            <div class="info__desc">
+              <p class="info__text text__bold">Меня зовут Михайлов Василий Николаевич.</p>
+              <p class="info__text">Я&nbsp;адвокат Адвокатской палаты Чувашской Республики.</p>
+              <p class="info__text">Мой регистрационный номер в&nbsp;реестре адвокатов 639.</p>
+              <p class="info__text">Свою деятельность осуществляю в&nbsp;коллегии адвокатов &laquo;Бизнес&nbsp;и&nbsp;право&raquo;.</p>
+              <p class="info__text">В&nbsp;2004 году закончил Нижегородскую академию МВД России.</p>
+              <p class="info__text">В&nbsp;2008 году закончил Чувашской Государственный Университет им. И.&nbsp;Н.&nbsp;Ульянова.</p>
+              <p class="info__text">В&nbsp;2012 году закончил Академию МВД России.</p>
+              <p>За&nbsp;время профессиональной деятельности адвокатом, я&nbsp;выработал свои профессиональные стандарты:</p>
+                <ul class="info__list list-reset">
+                  <li class="info__item"><p class="paragraph__item_text">глубокие теоретические знания законов&nbsp;РФ;</p></li>
+                  <li class="info__item"><p class="paragraph__item_text">анализ быстро меняющейся правоприменительной практики в&nbsp;России;</p></li>
+                  <li class="info__item"><p class="paragraph__item_text">индивидуальный подход к&nbsp;защите интересов своих клиентов.</p></li>
                 </ul>
-              </li>
-              <li class="info__paragraph">
-                <p class="desc__text section__text">Я стану надежным защитником в отстаивании Ваших прав и законных интересов.</p>
-              </li>
-            </ul>
+              <p class="info__text text__bold">Я стану надежным защитником в отстаивании Ваших прав и законных интересов.</p>
+            </div>
           </div>
-
-          <div class="adout-adv section__bottom">
-            <article class="adout-adv_desc2">
-              <h3 class="article__title section__text">Что Вы&nbsp;получите, обратившись ко&nbsp;мне?</h3>
-              <ui class="about-adv__list list-reset flex">
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">1</span>
-                  <span class="item__number">1</span>
-                  <p class="section__text"><span class="adout-adv__text2">Высококвалифицированную юридическую помощь </span>и&nbsp;доведение Вашего дела до&nbsp;успешного завершения.</p>
-                </li>
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">2</span>
-                  <span class="item__number">2</span>
-                  <p class="  section__text"><span class="adout-adv__text2">Отсутствие ложных обещаний. </span>Если Ваш вопрос можно решить&nbsp;&mdash; я&nbsp;сделаю все, что в&nbsp;моих силах для его успешного решения.</p>
-                </li>
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">3</span>
-                  <span class="item__number">3</span>
-                <p class="  section__text"><span class="adout-adv__text2">Вы&nbsp;всегда будете в&nbsp;курсе дела. </span>Я&nbsp;оперативно проинформирую Вас о&nbsp;ходе дела и&nbsp;дальнейших действиях.</p>
+          <article class="adout__article">
+            <h3 class="article__title section__text">Что Вы&nbsp;получите, обратившись ко&nbsp;мне?</h3>
+            <ol class="article__list flex">
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">1</span> -->
+                <!-- <span class="item__number">1</span> -->
+                <p class="section__text"><span class="adout-adv__text2">Высококвалифицированную юридическую помощь </span>и&nbsp;доведение Вашего дела до&nbsp;успешного завершения.</p>
               </li>
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">4</span>
-                  <span class="item__number">4</span>
-                  <p class="  section__text"><span class="adout-adv__text2">Круглосуточную юридическую помощь&nbsp;&mdash;</span> 7&nbsp;дней в&nbsp;неделю, без праздников и&nbsp;выходных. Быстрый выезд к&nbsp;клиенту.</p>
-                </li>
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">5</span>
-                  <span class="item__number">5</span>
-                  <p class="  section__text"><span class="adout-adv__text2">Грамотные юридические консультации </span>по&nbsp;телефону, электронной почте или лично на&nbsp;приеме в&nbsp;офисе.</p>
-                </li>
-                <li class="adout-adv__item flex">
-                  <span class="item__number item__number_shadow">6</span>
-                  <span class="item__number">6</span>
-                  <p class="  section__text"><span class="adout-adv__text2">Большой спектр оказываемых юридических услуг </span>и&nbsp;возможностей в&nbsp;различных областях прав</p>
-                </li>
-              </ui>
-            </article>
-          </div>
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">2</span> -->
+                <!-- <span class="item__number">2</span> -->
+                <p class="  section__text"><span class="adout-adv__text2">Отсутствие ложных обещаний. </span>Если Ваш вопрос можно решить&nbsp;&mdash; я&nbsp;сделаю все, что в&nbsp;моих силах для его успешного решения.</p>
+              </li>
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">3</span> -->
+                <!-- <span class="item__number">3</span> -->
+              <p class="  section__text"><span class="adout-adv__text2">Вы&nbsp;всегда будете в&nbsp;курсе дела. </span>Я&nbsp;оперативно проинформирую Вас о&nbsp;ходе дела и&nbsp;дальнейших действиях.</p>
+             </li>
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">4</span> -->
+                <!-- <span class="item__number">4</span> -->
+                <p class="  section__text"><span class="adout-adv__text2">Круглосуточную юридическую помощь&nbsp;&mdash;</span> 7&nbsp;дней в&nbsp;неделю, без праздников и&nbsp;выходных. Быстрый выезд к&nbsp;клиенту.</p>
+              </li>
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">5</span> -->
+                <!-- <span class="item__number">5</span> -->
+                <p class="  section__text"><span class="adout-adv__text2">Грамотные юридические консультации </span>по&nbsp;телефону, электронной почте или лично на&nbsp;приеме в&nbsp;офисе.</p>
+              </li>
+              <li class="article__item">
+                <!-- <span class="item__number item__number_shadow">6</span> -->
+                <!-- <span class="item__number">6</span> -->
+                <p class="  section__text"><span class="adout-adv__text2">Большой спектр оказываемых юридических услуг </span>и&nbsp;возможностей в&nbsp;различных областях прав</p>
+              </li>
+            </ol>
+          </article>
         </section>        
 
         <section id="servis" class="servis container section__bottom">
@@ -258,34 +241,36 @@
             </ul>
         </section>
 
-        <section id="practice" class="practice container section__bottom">
-          <span class="title__shadow">мои дела</span>
-          <h2 class="practice__title section__title">мои дела</h2>
-            <div class="slider__swiper">
-              <div class="swiper-wrapper flex">
-                  <div class="swiper-slide swiper-slide_1">
-                    <h3 class="slide__title">Дело 1.....</h3>
-                      <p class="section__text"><span class="text_bold">Содержание: </span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий требуют определения и уточнения форм развития.</p>
-                      <p class="section__text"><span class="text_bold">Результат: </span>Не следует, однако забывать, что реализация намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. Разнообразный и богатый опыт консультация с широким активом в значительной степени обуславливает создание систем массового участия. Задача организации, в особенности же консультация с широким активом играет</p>
-                  </div>
+        <section id="practice" class="practice section__bottom">
+          <div class="container">
+            <span class="title__shadow">мои дела</span>
+            <h2 class="practice__title section__title">мои дела</h2>
+          </div>
+          <div class="slider__swiper swiper">
+            <div class="swiper-wrapper  flex">
+                <div class="swiper-slide">
+                  <h3 class="slide__title">Дело 1.....</h3>
+                    <p class="slide__text"><span class="text__bold">Содержание:</span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития.</p>
+                    <p class="slide__text"><span class="text__bold">Результат:</span>Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Наш безопасную свой мир подпоясал вопрос заглавных своего своих обеспечивает.</p>
+                </div>
 
-                  <div class="swiper-slide swiper-slide_2">
-                    <h3 class="slide__title">Дело 2.....</h3>
-                      <p class="section__text"><span class="text_bold">Содержание: </span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий требуют определения и уточнения форм развития.</p>
-                      <p class="section__text"><span class="text_bold">Результат: </span>Не следует, однако забывать, что реализация намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. Разнообразный и богатый опыт консультация с широким активом в значительной степени обуславливает создание систем массового участия. Задача организации, в особенности же консультация с широким активом играет</p>
-                  </div>
+                <div class="swiper-slide">
+                  <h3 class="slide__title">Дело 2.....</h3>
+                    <p class="slide__text"><span class="text__bold">Содержание: </span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий требуют определения и уточнения форм развития.</p>
+                    <p class="slide__text"><span class="text__bold">Результат: </span>Не следует, однако забывать, что реализация намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. Разнообразный и богатый опыт консультация с широким активом в значительной степени обуславливает создание систем массового участия. Задача организации, в особенности же консультация с широким активом играет</p>
+                </div>
 
-                  <div class="swiper-slide swiper-slide_3">
-                    <h3 class="slide__title">Дело 3.....</h3>
-                      <p class="section__text"><span class="text_bold">Содержание: </span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий требуют определения и уточнения форм развития.</p>
-                      <p class="section__text"><span class="text_bold">Результат: </span>Не следует, однако забывать, что реализация намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. Разнообразный и богатый опыт консультация с широким активом в значительной степени обуславливает создание систем массового участия. Задача организации, в особенности же консультация с широким активом играет</p>
-                  </div>
-              </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-scrollbar"></div>
+                <div class="swiper-slide">
+                  <h3 class="slide__title">Дело 3.....</h3>
+                    <p class="slide__text"><span class="text__bold">Содержание: </span> Задача организации, в особенности же рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. Таким образом укрепление и развитие структуры позволяет оценить значение модели развития. Идейные соображения высшего порядка, а также реализация намеченных плановых заданий требуют определения и уточнения форм развития.</p>
+                    <p class="slide__text"><span class="text__bold">Результат: </span>Не следует, однако забывать, что реализация намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. Разнообразный и богатый опыт консультация с широким активом в значительной степени обуславливает создание систем массового участия. Задача организации, в особенности же консультация с широким активом играет</p>
+                </div>
             </div>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-button-prev btn-reset"></button>
+            <button class="swiper-button-next"></button>
+            <!-- <div class="swiper-scrollbar"></div> -->
+          </div>
           
         </section>
 
@@ -401,7 +386,7 @@
     </main>  
     <script src="./libs/inputmask.min.js"></script>
     <script src="./libs/just-validate.production.min.js"></script> 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./libs/swiper-bundle.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
     <script src="./js/main.js"></script>
 </body>
