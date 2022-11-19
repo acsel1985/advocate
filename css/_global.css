@@ -1,0 +1,40 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:focus {
+    outline: none;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  body {
+    font:  400 16px/20px 'Montserrat', sans-serif;
+    min-width: 320px;
+    color: var(--white-color);
+    background-color: var(--color-bg);
+  }
+
