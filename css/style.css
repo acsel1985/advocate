@@ -590,16 +590,12 @@ display: none;
   opacity: 1;
 }
 .content__list {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
   width: 100%;
-  border-radius: var(--main-radius);
+  column-count: 2;
+  column-gap: var(--gap);
 }
 .content__el {
   margin-bottom: 1rem;  
-  width: calc((100% - (var(--gap))*2)/2);
   font-size: 1.13rem;
   background-image: url(../img/about/about-icon-2.svg);
   background-repeat: no-repeat;

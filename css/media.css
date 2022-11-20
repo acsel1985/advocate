@@ -208,7 +208,7 @@
     }
     .content__list {
         padding: 0 2rem;
-        justify-content: center;
+        column-count: 1;
     }
     .content__el {
         width: 100%;
