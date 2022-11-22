@@ -61,7 +61,7 @@
 }
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 *,
 *::after,
@@ -462,7 +462,7 @@ display: none;
   line-height: 1.25em;
   text-align: center;
 }
-.servis__list {
+.servis__nav {
   position: relative;
   flex-wrap: wrap;
   justify-content: center;
@@ -470,14 +470,14 @@ display: none;
   border-top: 1px solid var(--bluelight-color);
   border-bottom: 1px solid var(--bluelight-color);
 }
-.servis__item {
+.servis__nav-item {
   position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: calc((100%)/4);
 }
-.servis__item:not(:last-child)::after {
+.servis__nav-item:not(:last-child)::after {
   position: absolute;
   content: "";
   right: 0;
@@ -489,7 +489,8 @@ display: none;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.servis_btn {
+
+.servis__btn {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -498,7 +499,7 @@ display: none;
   width: 100%;
   height: 100%;
 }
-.servis_btn::after {
+.servis__btn::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -511,6 +512,7 @@ display: none;
   transition: opacity .2s ease-in-out,background-color .2s ease-in-out;
   inset: 0 -1px 0 -1px;
 }
+
 .item__icon {
   position: relative;
   width: 70px;
@@ -545,61 +547,62 @@ display: none;
 .item__arrow path {
   stroke: var(--white-color);
   fill: transparent;
+  transition: fill .2s ease-in-out,stroke .2s ease-in-out;
 }
-.servis_btn:focus-visible:not(.servis_btn--active) {
+.servis__btn:focus-visible:not(.servis__btn--active) {
   outline: 2px solid var(--accent-color);
 }
-.servis_btn--active {
+.servis__btn--active {
   outline: none;
 }
-.servis_btn:hover:not(.servis_btn--active):after {
+.servis__btn:hover:not(.servis__btn--active):after {
   background-color: var(--bluelight-color);
   opacity: 1;
 }
-.servis_btn--active::after {
+.servis__btn--active::after {
   background-color: var(--accent-color);
   opacity: 1;
 }
-.servis__item:nth-child(odd):hover .item__icon path,
-.servis__item:nth-child(odd) .servis_btn--active .item__icon path {
+.servis__nav-item:nth-child(odd):hover .item__icon path,
+.servis__nav-item:nth-child(odd) .servis__btn--active .item__icon path {
   stroke: var(--color-bg);
   fill: transparent;
 }
-.servis__item:nth-child(even):hover .item__icon path,
-.servis__item:nth-child(even) .servis_btn--active .item__icon path {
+.servis__nav-item:nth-child(even):hover .item__icon path,
+.servis__nav-item:nth-child(even) .servis__btn--active .item__icon path {
   fill: var(--color-bg);
 }
-.servis__item:hover .servis__caption,
-.servis_btn--active .servis__caption {
+.servis__nav-item:hover .servis__caption,
+.servis__btn--active .servis__caption {
   color: var(--color-bg);
  }
-.servis__item:hover .item__arrow path,
-.servis_btn--active .item__arrow path {
+.servis__nav-item:hover .item__arrow path,
+.servis__btn--active .item__arrow path {
   stroke: var(--color-bg);
 }
-.servis__content {
+
+.servis__tab-content {
   display: none;
   padding: 2rem 0 0;
   visibility: hidden;
   opacity: 0;
 }
-.servis__content--active {
+.tab--visible {
   display: flex;
   flex-direction: column;
   visibility: visible;
   opacity: 1;
 }
+.servis__btn--accordion {
+  display: none;
+}
 .content__list {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
   width: 100%;
-  border-radius: var(--main-radius);
+  column-count: 2;
+  column-gap: var(--gap);
 }
 .content__el {
   margin-bottom: 1rem;  
-  width: calc((100% - (var(--gap))*2)/2);
   font-size: 1.13rem;
   background-image: url(../img/about/about-icon-2.svg);
   background-repeat: no-repeat;
@@ -766,15 +769,16 @@ display: none;
 
 /* === modals === */
 .modal {
-  position: fixed;
+  position: absolute;
   align-items: center;
   justify-content: center;
   max-height: 680px;
   padding:30px 20px;
   border-radius: 15px;
   visibility: hidden;
-  z-index: 20;
+  z-index: 200;
   opacity: 0;
+  text-align: center;
   color: var(--black-color);
   background-color: var(--bluelight-color);
   box-shadow: -5px 10px 15px 0px  rgba(142, 161, 199, 0.25);
@@ -782,6 +786,7 @@ display: none;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .modal__overlay{
   position: fixed;
   top: 0;
@@ -798,6 +803,7 @@ display: none;
   background-color: rgba(0, 0, 0, 0.7);
   transition: opacity .2s ease-in-out;
 }
+
 fieldset {
   margin: 0;
   padding: 0;
