@@ -3,7 +3,7 @@
     .btn:focus-visible,
     .menu__link:focus-visible,
     .tel__link:focus-visible,
-    .servis_btn:focus-visible:not(.servis_btn--active),
+    .servis__btn:focus-visible:not(.servis__btn--active),
     .contacts__link:focus:after,
     .footer__icon:focus-visible svg,
     .footer__icon:focus-visible {
@@ -54,19 +54,19 @@
     }
 
     /* === servis === */
-    .servis__list {
+    .servis__nav {
         border-top: none;
     }
-    .servis__item {
+    .servis__nav-item {
         width: calc((100%)/2);
     }
-    .servis__item:not(:last-child)::after {
+    .servis__nav-item:not(:last-child)::after {
         width: 0;
     }
-    .servis__item:nth-child(odd)::after {
+    .servis__nav-item:nth-child(odd)::after {
         width: 1px;
     }
-    .servis__item::before {
+    .servis__nav-item::before {
         position: absolute;
         content: "";
         top: 0;
@@ -74,7 +74,7 @@
         height: 0.5px;
         background-color: var(--bluelight-color);
     }
-    .servis_btn {
+    .servis__btn {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -193,27 +193,72 @@
         font-size: 5rem;
     }
     /* === servis === */
-    .servis__item {
+    .servis__nav {
+        display: none;
+    }
+    .servis__nav-item {
         width: 100%;
     }
-    .servis__item:nth-child(odd)::after {
+    .servis__nav-item:nth-child(odd)::after {
         width: 0;
     }
-    .servis_btn {
+    .servis__btn--accordion {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding: 1rem 2rem;
+        width: 100%;
+        height: 100%;
     }
     .servis__caption {
         margin-bottom: 0;
         max-width: none;
     }
+    .servis__btn--accordion .item__arrow {
+        transition: transform .2s ease-in-out;
+    }
     .content__list {
         padding: 0 2rem;
+        padding-top: 2rem;
         column-count: 1;
     }
+    .servis__tab-content {
+        display: flex;
+        flex-direction: column;
+        visibility: visible;
+        opacity: 1;
+        padding: 0;
+        border-bottom: 1px solid var(--bluelight-color);
+    }
+    .servis__tab-content:first-child {
+        border-top: 1px solid var(--bluelight-color);
+    }
+
     .content__el {
         width: 100%;
     }
 
+    /* .servis__tab-content .servis__btn--accordion.ui-state-active {
+        border-color: var(--accent-color);
+    } */
+    .servis__tab-content:nth-child(odd) .servis__btn--accordion.ui-state-active .item__icon path {
+        stroke: var(--accent-color);
+    }
+    .servis__tab-content:nth-child(even) .servis__btn--accordion.ui-state-active .item__icon path {
+        fill: var(--accent-color);
+    }
+    .servis__btn--accordion.ui-state-active .servis__caption {
+        color: var(--accent-color);
+    }
+    .servis__btn--accordion.ui-state-active .item__arrow {
+        transform: rotate(180deg);
+        transition: transform .2s ease-in-out;
+    }
+    .servis__btn--accordion.ui-state-active .item__arrow path {
+        stroke: var(--accent-color);
+    }
 
     /* === contacts === */
     .contacts_wrapper {
@@ -354,7 +399,7 @@
     }
 
     /* === servis === */
-    .servis_btn {
+    .servis__btn {
         padding: 1rem 0.5rem;
     }
     .item__icon {
@@ -362,7 +407,7 @@
         height: 50px;
     }
     .content__list {
-        padding: 0;
+        padding: 1rem 0 0;
     }
 
     /* === practice === */

@@ -6,20 +6,22 @@ const body = document.body;
 
 let disableScroll = function() {
   let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
-  let pagePosition = window.scrollY;
-  body.classList.add('disable-scroll');
-  body.dataset.position = pagePosition;
-  body.style.top = - pagePosition + 'px';
   body.style.paddingRight = paddingOffset;
+  body.classList.add('disable-scroll');
 }
 
 let enableScroll = function() {
-  let pagePosition = parseInt(body.dataset.position, 10);
-  body.classList.remove('disable-scroll');
-  body.style.top = 'auto';
   body.style.paddingRight = '0px';
-  window.scroll({top: pagePosition});
-  body.removeAttribute('data-position');
+  body.classList.remove('disable-scroll');
+}
+
+
+let focusCatch = function(e) {
+  
+}
+
+let focusTrap = function() {
+
 }
 
 burger.addEventListener('click', function() {
@@ -53,16 +55,15 @@ function(el) {
 
 });
 
-
 // иницилизация modal-windows
-const btns = document.querySelectorAll('.btn__open');// массив кнопок
+const btns = document.querySelectorAll('.btn__open');
 const modalOverlay = document.querySelector('.modal__overlay');
-const modals = document.querySelectorAll('.modal');// массив окон
+const modals = document.querySelectorAll('.modal');
 const btnClose = document.querySelector('.btn-close');
 
 btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
-        let path =e.currentTarget.getAttribute('data-path');// в переменную записываю значение атрибута кнопки по которой кликнули
+        let path =e.currentTarget.getAttribute('data-path');
 
         modals.forEach(function(el) {
             el.classList.remove('modal--visible');
@@ -106,7 +107,6 @@ document.addEventListener('keydown', function(e) {
 });
 
 // inputmask
-console.log('Init!');
  const form = document.querySelector('.form');
  const telSelector = form.querySelector('input[type="tel"]');
  const inputMask = new Inputmask('+7 (999) 999-99-99');
@@ -120,12 +120,10 @@ validation
     {
       rule: 'minLength',
       value: 3,
-      // errorMessage: 'Введите 3 или более символов',
     },
     {
       rule: 'maxLength',
       value: 30,
-      // errorMessage: 'Запрещено вводить более 30 символов',
     },
     {
       rule: 'required',
@@ -178,35 +176,41 @@ validation
     event.target.reset();
   }); 
 
-  // .addField('#question', [
-  //   {
-  //     validator: (value) => {
-  //       return value[0] === '!';
-  //     },
-  //   },
-  // ])
-
-
-
 // tabs
-let tabsBtn = document.querySelectorAll('.servis_btn');
-let tabsItem = document.querySelectorAll('.servis__content');
+if (window.innerWidth > 768) {
+  let tabsBtn = document.querySelectorAll('.servis__btn');
+  let tabsItem = document.querySelectorAll('.servis__tab-content');
 
-tabsBtn.forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    let path =e.currentTarget.getAttribute('data-path');
-    
-    tabsBtn.forEach(function(btn) {
-      btn.classList.remove('servis_btn--active');
-      e.currentTarget.classList.add('servis_btn--active');
-    });
-
-    tabsItem.forEach(function(item) {
-      item.classList.remove('servis__content--active');
-      document.querySelector(`[data-target="${path}"]`).classList.add('servis__content--active');
+  tabsBtn.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      let path =e.currentTarget.getAttribute('data-path');
+      
+      tabsBtn.forEach(function(btn) {
+        btn.classList.remove('servis__btn--active');
+        e.currentTarget.classList.add('servis__btn--active');
+      });
+  
+      tabsItem.forEach(function(item) {
+        item.classList.remove('tab--visible');
+        document.querySelector(`[data-target="${path}"]`).classList.add('tab--visible');
+      });
     });
   });
-});
+}
+if (window.innerWidth <= 768) {
+
+  $(function () {
+    $(".accordion__list").accordion({
+        collapsible: true,
+        active: false,
+        heightStyle: "content",
+        animate: 300,
+        icons: false,
+    });
+  
+  });
+}
+
 
 // иницилизация slider-swiper
 const swiper = new Swiper('.swiper', {
@@ -232,10 +236,6 @@ const swiper = new Swiper('.swiper', {
       onlyInViewport: false,
     },
   
-    // mousewheel: {
-    //   invert: true,
-    // },
-  
     a11y: {
       paginationBulletMessage: 'Перейти к слайду {{index}}'
     },
@@ -250,37 +250,21 @@ function init() {
         center: center,
         zoom: 17,
         suppressMapOpenBlock: true,
-        // controls: ['routePanelControl'],
     });
 
     let placemark = new ymaps.Placemark(center, {}, {
-        // iconLayout: '',
-        // iconImageHref: '',
-        // iconImageSize: [],
-        // iconImageOffset: [],
+
     });
 
-    // let control = map.controls.get('routePanelControl');
-    // let city = 'Чебоксары';
-    // let addressOffice = 'ул. Мичмана Павлова, дом 8';
 
-    // control.routePanel.state.set({
-    //     type: 'masstransit',
-    //     fromEnabled: true,
-    //     toEnabled: true,
-    //     to: `${city}, ${addressOffice}`,
-    // });
-
-    map.controls.remove('geolocationControl'); // удаляем геолокацию
-    map.controls.remove('searchControl'); // удаляем поиск
-    map.controls.remove('trafficControl'); // удаляем контроль трафика
-    // map.controls.remove('typeSelector'); // удаляем тип
-    map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-    // map.controls.remove('zoomControl'); // удаляем контрол зуммирования
-    map.controls.remove('rulerControl'); // удаляем контрол правил
-    map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
+    map.controls.remove('geolocationControl'); 
+    map.controls.remove('searchControl'); 
+    map.controls.remove('trafficControl'); 
+    map.controls.remove('fullscreenControl'); 
+    map.controls.remove('rulerControl'); 
+    map.behaviors.disable(['scrollZoom']); 
     
-    map.geoObjects.add(placemark);// добавляем элемент на карту
+    map.geoObjects.add(placemark);
 }
 
 ymaps.ready(init);
